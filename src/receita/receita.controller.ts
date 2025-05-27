@@ -1,7 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ReceitaService } from './receita.service';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import { CreateReceitaDto } from './dto/create-receita.dto';
 import { UpdateReceitaDto } from './dto/update-receita.dto';
+import { ReceitaService } from './receita.service';
 
 @Controller('receita')
 export class ReceitaController {
@@ -19,16 +28,17 @@ export class ReceitaController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.receitaService.findOne(+id);
+    return this.receitaService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateReceitaDto: UpdateReceitaDto) {
-    return this.receitaService.update(+id, updateReceitaDto);
+    return this.receitaService.update(id, updateReceitaDto);
   }
 
+  @HttpCode(204)
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.receitaService.remove(+id);
+    return this.receitaService.remove(id);
   }
 }
