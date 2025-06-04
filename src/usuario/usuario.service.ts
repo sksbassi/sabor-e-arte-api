@@ -28,6 +28,15 @@ export class UsuarioService {
     return usuario;
   }
 
+    async findByEmail(email:string) {
+    const usuario = await this.prisma.usuario.findFirst({
+      where: {
+        email,
+      },
+    });
+    return usuario;
+  }
+
   async update(id: string, updateUsuarioDto: UpdateUsuarioDto) {
     const updateUsuario = await this.prisma.usuario.update({
       data: updateUsuarioDto,

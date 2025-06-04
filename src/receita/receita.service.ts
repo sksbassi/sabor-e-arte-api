@@ -15,14 +15,15 @@ export class ReceitaService {
   // }
 
   async create(createReceitaDto: CreateReceitaDto) {
-  const novaReceita = await this.prisma.receita.create({
-    data: {
-      ...createReceitaDto, // Isso já inclui usuarioId se vier corretamente
-    },
-  });
+    console.log(createReceitaDto);
+    const novaReceita = await this.prisma.receita.create({
+      data: {
+        ...createReceitaDto, // Isso já inclui usuarioId se vier corretamente
+      },
+    });
 
-  return novaReceita;
-}
+    return novaReceita;
+  }
 
   async findAll() {
     const listareceitas = await this.prisma.receita.findMany();
