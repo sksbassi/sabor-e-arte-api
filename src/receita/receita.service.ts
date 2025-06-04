@@ -7,12 +7,22 @@ import { UpdateReceitaDto } from './dto/update-receita.dto';
 export class ReceitaService {
   constructor(private prisma: PrismaService) {}
 
+  // async create(createReceitaDto: CreateReceitaDto) {
+  //   const novaReceita = await this.prisma.receita.create({
+  //     data: createReceitaDto,
+  //   });
+  //   return novaReceita;
+  // }
+
   async create(createReceitaDto: CreateReceitaDto) {
-    const novaReceita = await this.prisma.receita.create({
-      data: createReceitaDto,
-    });
-    return novaReceita;
-  }
+  const novaReceita = await this.prisma.receita.create({
+    data: {
+      ...createReceitaDto, // Isso já inclui usuarioId se vier corretamente
+    },
+  });
+
+  return novaReceita;
+}
 
   async findAll() {
     const listareceitas = await this.prisma.receita.findMany();

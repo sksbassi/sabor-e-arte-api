@@ -15,12 +15,11 @@ datasource db {
 
 model Receita {
   id              String   @id @default(uuid())
-  imagem          String
   nome            String
   ingredientes    String
   modoPreparo     String
   tempoPreparo    Int
-  classificao     String
+  classificacao     String
   dataPublicacao  DateTime @default(now())
   usuariopostagem Usuario  @relation(fields: [usuarioId], references: [id])
   usuarioId       String
