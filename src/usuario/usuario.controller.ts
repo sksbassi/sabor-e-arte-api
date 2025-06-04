@@ -23,8 +23,7 @@ export class UsuarioController {
   }
 
   @Post('auth')
-  findByEmail(@Body() user: Pick<CreateUsuarioDto, 'email'>) {
-    console.log(user);
+  findByEmail(@Body() user:{email:string}) {
 
     return this.usuarioService.findByEmail(user.email);
   }

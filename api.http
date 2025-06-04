@@ -1,1 +1,6 @@
-GET http://localhost:3000/receita/com-usuario
+POST http://localhost:3000/usuario/auth
+Content-Type: application/json
+
+{
+  "email": "bassi@gmail.com"
+}
