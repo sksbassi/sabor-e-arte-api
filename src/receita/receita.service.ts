@@ -8,14 +8,27 @@ export class ReceitaService {
   constructor(private prisma: PrismaService) {}
 
   async create(createReceitaDto: CreateReceitaDto) {
-    const receita = await this.prisma.receita.create({
+    const novaReceita = await this.prisma.receita.create({
       data: createReceitaDto,
     });
-    return receita;
+    return novaReceita;
   }
 
   async findAll() {
     const listareceitas = await this.prisma.receita.findMany();
+    return listareceitas;
+  }
+
+  async findAllWithUsers() {
+    const listareceitas = await this.prisma.receita.findMany({
+      include: {
+        usuariopostagem: {
+          select: {
+            nome: true,
+          },
+        },
+      },
+    });
     return listareceitas;
   }
 
@@ -35,7 +48,7 @@ export class ReceitaService {
         id,
       },
     });
-    return updateReceitaDto;
+    return novareceita;
   }
 
   async remove(id: string) {

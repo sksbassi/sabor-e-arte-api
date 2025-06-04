@@ -5,7 +5,6 @@ export class CreateReceitaDto {
   imagem: string;
   @IsString()
   nome: string;
-  @IsString()
   ingredientes: string;
   @IsString()
   modoPreparo: string;

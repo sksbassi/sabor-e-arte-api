@@ -26,6 +26,11 @@ export class ReceitaController {
     return this.receitaService.findAll();
   }
 
+  @Get('/com-usuario')
+  findAllWithUsers() {
+    return this.receitaService.findAllWithUsers();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.receitaService.findOne(id);
