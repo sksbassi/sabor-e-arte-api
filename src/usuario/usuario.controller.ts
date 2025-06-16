@@ -22,10 +22,14 @@ export class UsuarioController {
     return this.usuarioService.findOne(id);
   }
 
-  @Post('auth')
-  findByEmail(@Body() user:{email:string}) {
+  // @Post('auth')
+  // findByEmail(@Body() user:{email:string, senha: string}) {
+  //   return this.usuarioService.findByEmail(user.email, user.senha);
+  // }
 
-    return this.usuarioService.findByEmail(user.email);
+    @Post('auth')
+  async validarLogin(@Body() user: { email: string; senha: string }) {
+    return this.usuarioService.findByEmail(user.email, user.senha);
   }
 
   @Patch(':id')

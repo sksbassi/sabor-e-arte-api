@@ -28,10 +28,11 @@ export class UsuarioService {
     return usuario;
   }
 
-    async findByEmail(email:string) {
+  async findByEmail(email: string, senha: string) {
     const usuario = await this.prisma.usuario.findFirst({
       where: {
         email,
+        senha,
       },
     });
     return usuario;
