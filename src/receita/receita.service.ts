@@ -8,7 +8,7 @@ export class ReceitaService {
   constructor(private prisma: PrismaService) {} //Injeta o prisma service para poder ser utilizado
   //em cada função
   //service é o que comunica com o banco
-  
+
   async create(createReceitaDto: CreateReceitaDto) {
     console.log(createReceitaDto);
     const novaReceita = await this.prisma.receita.create({
@@ -21,7 +21,11 @@ export class ReceitaService {
   }
 
   async findAll() {
-    const listareceitas = await this.prisma.receita.findMany();
+    const listareceitas = await this.prisma.receita.findMany({
+      orderBy: {
+        nome: 'asc',
+      },
+    });
     return listareceitas;
   }
 
