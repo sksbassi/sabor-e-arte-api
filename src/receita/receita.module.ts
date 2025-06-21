@@ -1,3 +1,4 @@
+//Organiza as funcionalidades de receita
 import { Module } from '@nestjs/common';
 import { ReceitaService } from './receita.service';
 import { ReceitaController } from './receita.controller';

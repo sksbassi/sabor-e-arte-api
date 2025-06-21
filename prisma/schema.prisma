@@ -5,12 +5,13 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client-js" // Prisma Client Ele fornece uma interface para 
+  //interagir com o banco de dados de forma segura e eficiente
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "postgresql" 
+  url      = env("DATABASE_URL") //URL do meu banco que vem do arquivo env
 }
 
 model Receita {

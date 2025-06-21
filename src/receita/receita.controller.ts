@@ -12,13 +12,15 @@ import { CreateReceitaDto } from './dto/create-receita.dto';
 import { UpdateReceitaDto } from './dto/update-receita.dto';
 import { ReceitaService } from './receita.service';
 
-@Controller('receita')
+@Controller('receita')//rota da classe receita
 export class ReceitaController {
-  constructor(private readonly receitaService: ReceitaService) {}
+  constructor(private readonly receitaService: ReceitaService) {}//Injeta as dependências
 
-  @Post()
-  create(@Body() createReceitaDto: CreateReceitaDto) {
-    return this.receitaService.create(createReceitaDto);
+  @Post()//Método para cadastrar
+  create(@Body() createReceitaDto: CreateReceitaDto) {//Anotation body para receber um corpo e recebe um
+  //dto
+    return this.receitaService.create(createReceitaDto);//retorna a criação usando o service, que é o que
+    //comunica com o banco de dados
   }
 
   @Get()
@@ -26,17 +28,18 @@ export class ReceitaController {
     return this.receitaService.findAll();
   }
 
-  @Get('/com-usuario')
+  @Get('/com-usuario')//nova rota para uma consulta que retorna também os dados dos usuários
   findAllWithUsers() {
-    return this.receitaService.findAllWithUsers();
+    return this.receitaService.findAllWithUsers();//função retorna todos os registros da entidade
+    //incluindo os dados de usuário
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
+  @Get(':id')//nova rota para localizar receita pelo id 
+  findOne(@Param('id') id: string){
     return this.receitaService.findOne(id);
   }
 
-  @Patch(':id')
+  @Patch(':id')//nova rota para atualizar pelo id
   update(@Param('id') id: string, @Body() updateReceitaDto: UpdateReceitaDto) {
     return this.receitaService.update(id, updateReceitaDto);
   }

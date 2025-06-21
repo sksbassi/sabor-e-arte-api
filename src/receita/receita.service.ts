@@ -5,15 +5,10 @@ import { UpdateReceitaDto } from './dto/update-receita.dto';
 
 @Injectable()
 export class ReceitaService {
-  constructor(private prisma: PrismaService) {}
-
-  // async create(createReceitaDto: CreateReceitaDto) {
-  //   const novaReceita = await this.prisma.receita.create({
-  //     data: createReceitaDto,
-  //   });
-  //   return novaReceita;
-  // }
-
+  constructor(private prisma: PrismaService) {} //Injeta o prisma service para poder ser utilizado
+  //em cada função
+  //service é o que comunica com o banco
+  
   async create(createReceitaDto: CreateReceitaDto) {
     console.log(createReceitaDto);
     const novaReceita = await this.prisma.receita.create({

@@ -29,6 +29,7 @@ export class UsuarioService {
   }
 
   async findByEmail(email: string, senha: string) {
+    //busca um usuário pelo email e senha
     const usuario = await this.prisma.usuario.findFirst({
       where: {
         email,

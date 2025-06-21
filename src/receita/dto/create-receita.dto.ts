@@ -1,6 +1,7 @@
 import { Usuario } from '@prisma/client';
 import { IsNumber, IsString } from 'class-validator';
-
+//Classe que defini os atributos obrigatórios para criar uma receita
+//Transportar os dados entre as partes da aplicação
 export class CreateReceitaDto {
   @IsString()
   nome: string;
