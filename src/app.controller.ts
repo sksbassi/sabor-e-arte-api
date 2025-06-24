@@ -1,3 +1,4 @@
+//CRIADO AUTOMATICAMENTE UM ENDPOINT BÁSICO
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 

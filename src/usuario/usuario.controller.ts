@@ -1,3 +1,4 @@
+//Controller são as classes que recebem as requuisições HTTP, define o método e se comunica com as services
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
@@ -22,12 +23,7 @@ export class UsuarioController {
     return this.usuarioService.findOne(id);
   }
 
-  // @Post('auth')
-  // findByEmail(@Body() user:{email:string, senha: string}) {
-  //   return this.usuarioService.findByEmail(user.email, user.senha);
-  // }
-
-    @Post('auth')
+    @Post('auth')//Rota específica de autenticação que foi usada para criar a função login
   async validarLogin(@Body() user: { email: string; senha: string }) {
     return this.usuarioService.findByEmail(user.email, user.senha);
   }
@@ -37,6 +33,7 @@ export class UsuarioController {
     return this.usuarioService.update(id, updateUsuarioDto);
   }
 
+  //Não é possível remover cadastro de usuários
   // @Delete(':id')
   // remove(@Param('id') id: string) {
   //   return this.usuarioService.remove(id);

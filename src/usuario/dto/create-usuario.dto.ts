@@ -1,5 +1,5 @@
 import { IsEmail, IsString } from 'class-validator';
-//Classe que defini os atributos obrigatórios para criar uma receita
+//Classe que defini os atributos obrigatórios para criar um usuário
 //Transportar os dados entre as partes da aplicação
 export class CreateUsuarioDto {
   @IsString()

@@ -1,3 +1,4 @@
+//Service recebe as requisições da controller, executa a lógica e interage com o banco de dados
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'prisma/prisma.service'; // ajuste conforme sua estrutura
 import { CreateUsuarioDto } from './dto/create-usuario.dto';

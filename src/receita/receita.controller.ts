@@ -1,3 +1,4 @@
+//Controller são as classes que recebem as requuisições HTTP, define o método e se comunica com as services
 import {
   Body,
   Controller,
@@ -44,7 +45,7 @@ export class ReceitaController {
     return this.receitaService.update(id, updateReceitaDto);
   }
 
-  @HttpCode(204)
+  @HttpCode(204)//Serve para mostrar o status 204 ao remover
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.receitaService.remove(id);

@@ -1,3 +1,4 @@
+//Service recebe as requisições da controller, executa a lógica e interage com o banco de dados
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'prisma/prisma.service';
 import { CreateReceitaDto } from './dto/create-receita.dto';
@@ -22,7 +23,7 @@ export class ReceitaService {
 
   async findAll() {
     const listareceitas = await this.prisma.receita.findMany({
-      orderBy: {
+      orderBy: { //Ordenação alfabética 
         nome: 'asc',
       },
     });
@@ -38,7 +39,7 @@ export class ReceitaService {
           },
         },
       },
-    });
+    });//Função que lista todas as receitas incluindo o nome do usuário de postagem
     return listareceitas;
   }
 
